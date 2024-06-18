@@ -1,0 +1,13 @@
+/* goggle material fonts and icons */
+@import 'material-design-icons/iconfont/material-icons.css';
+@import 'typeface-roboto/index.css';
+
+/* tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* fonts classes */
+.font-jacques-francois {
+    font-family: 'Jacques Francois', serif;
+}

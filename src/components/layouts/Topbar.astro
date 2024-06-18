@@ -1,0 +1,36 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<header class="text-white flex justify-between items-center  h-14">
+    <div class="h-14 flex-1 flex items-center">
+        <button class="h-12 w-12 flex items-center justify-center text-neutral-80">
+            <span class="material-icons">
+                arrow_back
+            </span>
+        </button>
+        <button class="h-12 w-20 flex items-center justify-center font-jacques-francois text-primary-120 text-4xl">
+            {title}
+        </button>
+    </div>
+    <div class="h-14 flex-1 flex items-center justify-end">
+        <button class="h-12 w-12 flex items-center justify-center text-neutral-80">
+            <span class="material-icons">
+                search
+            </span>
+        </button>
+        <button class="h-12 w-12 flex items-center justify-center text-neutral-80">
+            <span class="material-icons">
+                more_horiz
+            </span>
+        </button>
+    </div>
+    
+    
+</header>
+<hr class="w-full h-1 bg-gray-700" />
+
