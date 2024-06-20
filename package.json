@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/cloudflare": "^10.4.2",
+    "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.10.2",
     "autoprefixer": "^10.4.19",
     "material-design-icons": "^3.0.1",
