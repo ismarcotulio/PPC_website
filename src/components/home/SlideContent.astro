@@ -1,0 +1,200 @@
+
+<style>
+    .opacity {
+        opacity: 0.3;
+    }
+    .animate-bounce {
+        animation: bounce 1s infinite;
+    }
+    .fade-in {
+        animation: fadeIn 1s;
+    }
+    .slide-in {
+        animation: slideIn 0.5s; 
+    }
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    @keyframes slideIn {
+        0% { transform: translateY(-100%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+</style>
+<div class="h-500px w-full  flex items-end relative flex-col">
+    <img
+        id="backgroundImage" 
+        src="/images/Informacion.jpg" 
+        alt="Description of image" 
+        class="absolute inset-0 object-cover w-full h-full filter brightness-50 saturate-50 grayscale-50"
+    >
+    <div class="h-300px w-full  z-10 flex items-center justify-center flex-col">
+        <!-- <h4 class="m-4">
+            <span class="text-4xl font-bold text-white font-jacques-francois">
+                Plataforma de Participacion Ciudadana
+            </span>
+        </h4>
+        <p>
+            <span class="text-2xl text-white">
+                Un espacio digital  
+            </span>
+        </p>
+        <p>
+            <span class="text-2xl text-white">
+                para la interacción y colaboración
+            </span>
+        </p>
+        <p>
+            <span class="text-2xl text-white">
+                entre ciudadanos, empresas y organizaciones.
+            </span>
+        </p> -->
+    </div>
+    <div class="h-200px w-full z-10 flex items-center justify-center space-x-70px">
+        <button 
+            class="w-100px h-100px bg-white flex flex-col opacity "
+            data-content="Organizaciones"    
+        >
+            <div class="h-60px w-full flex items-center justify-center">
+                <div class="h-14 w-14 rounded-full bg-primary-120 flex items-center justify-center">
+                    <span class="material-icons text-white text-2xl">
+                        business
+                    </span>
+                </div>
+            </div>
+            <div class="h-40px w-full flex items-center justify-center text-xs font-bold text-primary-190">
+                Organizaciones
+            </div>
+        </button>
+        <button 
+            class="w-100px h-100px bg-white flex flex-col opacity"
+            data-content="Voluntariado"
+        >
+            <div class="h-60px w-full  flex items-center justify-center">
+                <div class="h-14 w-14 rounded-full bg-primary-120 flex items-center justify-center">
+                    <span class="material-icons text-white text-2xl">
+                        nature
+                    </span>
+                </div>
+            </div>
+            <div class="h-40px w-full  flex items-center justify-center text-xs font-bold text-primary-190">
+                Voluntariado
+            </div>
+        </button>
+        <button 
+            class="w-100px h-100px bg-white flex flex-col opacity"
+            data-content="Donacion"
+        >
+            <div class="h-60px w-full flex items-center justify-center">
+                <div class="h-14 w-14 rounded-full bg-primary-120 flex items-center justify-center">
+                    <span class="material-icons text-white text-2xl">
+                        favorite
+                    </span>
+                </div>
+            </div>
+            <div class="h-40px w-full  flex items-center justify-center text-xs font-bold text-primary-190">
+                Donacion
+            </div>
+        </button>
+        <button 
+            class="w-100px h-100px bg-white flex flex-col opacity"
+            data-content="Governanza"
+        >
+            <div class="h-60px w-full  flex items-center justify-center">
+                <div class="h-14 w-14 rounded-full bg-primary-120 flex items-center justify-center">
+                    <span class="material-icons text-white text-2xl">
+                        account_balance
+                    </span>
+                </div>
+            </div>
+            <div class="h-40px w-full  flex items-center justify-center text-xs font-bold text-primary-190">
+                Governanza
+            </div>
+        </button>
+        <button 
+            class="w-100px h-100px bg-white flex flex-col opacity"
+            data-content="Informacion"
+        >
+            <div class="h-60px w-full  flex items-center justify-center">
+                <div class="h-14 w-14 rounded-full bg-primary-120 flex items-center justify-center">
+                    <span class="material-icons text-white text-2xl">
+                        info
+                    </span>
+                </div>
+            </div>
+            <div class="h-40px w-full  flex items-center justify-center text-xs font-bold text-primary-190">
+                Informacion
+            </div>
+        </button>
+    </div>
+    
+</div>
+<div class="w-full">
+    <div class="content content-Organizaciones">
+        Contenido de organizaciones
+    </div>
+    <div class="content content-Voluntariado" style="display: none;">
+        Contenido de voluntariado
+    </div>
+    <div class="content content-Donacion" style="display: none;">
+        Contenido de Donacion
+    </div>
+    <div class="content content-Governanza" style="display: none;">
+        Contenido de Governanza
+    </div>
+    <div class="content content-Informacion" style="display: none;">
+        Contenido de Informacion
+    </div>
+</div>
+<script type="module">
+    let activeButton = null;
+
+    const handleClick = (content) => {
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.classList.add('opacity');
+        });
+
+        const clickedButton = document.querySelector(`button[data-content='${content}']`);
+        if (clickedButton) {
+            clickedButton.classList.remove('opacity');
+            activeButton = clickedButton;
+        }
+
+        const contentElements = document.querySelectorAll('.content');
+        contentElements.forEach(el => el.style.display = 'none');
+
+        const activeContentElement = document.querySelector(`.content-${content}`);
+        if (activeContentElement) {
+            activeContentElement.style.display = 'block';
+        }
+
+        const backgroundImage = document.getElementById('backgroundImage');
+        backgroundImage.src = `/images/${content}.jpg`;
+        // backgroundImage.classList.add('fade-in');
+        // setTimeout(() => backgroundImage.classList.remove('fade-in'), 1000);
+        backgroundImage.classList.add('slide-in');
+        setTimeout(() => backgroundImage.classList.remove('slide-in'), 1000);
+    }
+
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => handleClick(button.dataset.content));
+        button.addEventListener('mouseover', () => {
+            button.classList.remove('opacity');
+            button.classList.add('animate-bounce');
+        });
+        button.addEventListener('mouseout', () => {
+            if (button !== activeButton) {
+                button.classList.add('opacity');
+            }
+            button.classList.remove('animate-bounce');
+        });
+    });
+
+    // Call handleClick with the default content on page load
+    handleClick('Organizaciones');
+</script>
