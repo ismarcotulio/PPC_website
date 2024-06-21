@@ -1,5 +1,12 @@
 ---
 import Topbar from '../components/layouts/Topbar.astro';
+import 'material-design-icons/iconfont/material-icons.css';
+import 'typeface-roboto/index.css';
+import 'tailwindcss/base.css';
+import 'tailwindcss/components.css';
+import 'tailwindcss/utilities.css';
+import 'tailwindcss/tailwind.css';
+
 
 interface Props {
 	title: string;
@@ -15,12 +22,6 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="stylesheet" href="/node_modules/material-design-icons/iconfont/material-icons.css">
-        <link rel="stylesheet" href="/node_modules/typeface-roboto/index.css">
-        <link rel="stylesheet" href="/node_modules/tailwindcss/base.css">
-        <link rel="stylesheet" href="/node_modules/tailwindcss/components.css">
-        <link rel="stylesheet" href="/node_modules/tailwindcss/utilities.css">
-		
 		<title>{title}</title>
 	</head>
 	<body>
